@@ -1,0 +1,51 @@
+specVersion: 0.0.2
+description: Subgraph for AMPnet tokenizer platform
+repository: https://github.com/AMPnet/tokenizer-graph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: CfManagerSoftcapFactory
+    network: mumbai
+    source:
+      address: "0xbdD90f6Ba27def808d0535F9980015eB46F48eb7"
+      abi: CfManagerSoftcapFactory
+      startBlock: 19757863
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - CfManagerSoftcapCreated
+      abis:
+        - name: CfManagerSoftcapFactory
+          file: ./abis/CfManagerSoftcapFactory.json
+      eventHandlers:
+        - event: CfManagerSoftcapCreated(indexed address,address,address,uint256)
+          handler: handleCfManagerSoftcapCreated
+      file: ./src/cf-softcap-factory-mapping.ts
+templates:
+  - kind: ethereum/contract
+    name: CfManagerSoftcap
+    network: mumbai
+    source:
+      abi: CfManagerSoftcap
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - CfManagerSoftcap
+      abis:
+        - name: CfManagerSoftcap
+          file: ./abis/CfManagerSoftcap.json
+        - name: IAssetCommon
+          file: ./abis/IAssetCommon.json
+      eventHandlers:
+        - event: Invest(indexed address,address,uint256,uint256,uint256)
+          handler: handleInvest
+        - event: Claim(indexed address,address,uint256,uint256,uint256)
+          handler: handleClaim
+        - event: CancelInvestment(indexed address,address,uint256,uint256,uint256)
+          handler: handleCancelInvestment
+      file: ./src/cf-softcap-mapping.ts

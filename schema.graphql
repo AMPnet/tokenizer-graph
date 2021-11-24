@@ -1,0 +1,25 @@
+type Transaction @entity {
+    id: ID!
+    fromAddress: Bytes!
+    toAddress: Bytes!
+    contract: Bytes!
+    issuer: Bytes!
+    hash: Bytes!
+    type: TransactionType!
+    asset: Bytes!
+    timestamp: BigInt!
+    tokenSymbol: String!
+    tokenValue: BigInt!
+    tokenAmount: BigInt!
+    payoutId: BigInt!
+    revenue: BigInt!
+}
+
+enum TransactionType {
+    ReserveInvestment
+    CancelInvestment
+    TransferToken
+    CompletedInvestment
+    CreatePayout
+    RevenueShare
+}
