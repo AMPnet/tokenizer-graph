@@ -20,6 +20,8 @@ dataSources:
       abis:
         - name: CfManagerSoftcapFactory
           file: ./abis/CfManagerSoftcapFactory.json
+        - name: IAssetCommon
+          file: ./abis/IAssetCommon.json
       eventHandlers:
         - event: CfManagerSoftcapCreated(indexed address,address,address,uint256)
           handler: handleCfManagerSoftcapCreated
@@ -39,8 +41,6 @@ templates:
       abis:
         - name: CfManagerSoftcap
           file: ./abis/CfManagerSoftcap.json
-        - name: IAssetCommon
-          file: ./abis/IAssetCommon.json
       eventHandlers:
         - event: Invest(indexed address,address,uint256,uint256,uint256)
           handler: handleInvest

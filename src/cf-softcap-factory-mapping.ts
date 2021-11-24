@@ -1,6 +1,6 @@
 import {CfManagerSoftcapCreated} from '../generated/CfManagerSoftcapFactory/CfManagerSoftcapFactory'
 import {CfManagerSoftcap} from '../generated/templates'
-import {IAssetCommon} from '../generated/templates/CfManagerSoftcap/IAssetCommon'
+import {IAssetCommon} from '../generated/CfManagerSoftcapFactory/IAssetCommon'
 import {DataSourceContext} from '@graphprotocol/graph-ts'
 
 export function handleCfManagerSoftcapCreated(event: CfManagerSoftcapCreated): void {
