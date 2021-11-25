@@ -1,0 +1,15 @@
+{
+    "graft": {
+        "base": "QmW9Fu3gKUgUaDo4GDVbJqtqJQFVdgEaKWSUDC3ye9sLhQ",
+        "block": "21866612"
+    },
+    "network": "mumbai",
+    "cfManagerSoftcapFactory": {
+        "address": "0xbdD90f6Ba27def808d0535F9980015eB46F48eb7",
+        "startBlock": "21668185"
+    },
+    "cfManagerSoftcapVestingFactory": {
+        "address": "0x7470f1dD6c78b6Fe614CdB5D320824A169EB420C",
+        "startBlock": "21866612"
+    }
+}
