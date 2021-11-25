@@ -10,7 +10,7 @@ dataSources:
     source:
       address: "0xbdD90f6Ba27def808d0535F9980015eB46F48eb7"
       abi: CfManagerSoftcapFactory
-      startBlock: 19757863
+      startBlock: 21668185
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
