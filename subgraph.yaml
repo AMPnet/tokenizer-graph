@@ -3,6 +3,9 @@ description: Subgraph for AMPnet tokenizer platform
 repository: https://github.com/AMPnet/tokenizer-graph
 schema:
   file: ./schema.graphql
+graft:
+  base: QmW9Fu3gKUgUaDo4GDVbJqtqJQFVdgEaKWSUDC3ye9sLhQ
+  block: 21866612
 dataSources:
   - kind: ethereum/contract
     name: CfManagerSoftcapFactory
@@ -30,9 +33,9 @@ dataSources:
     name: CfManagerSoftcapVestingFactory
     network: mumbai
     source:
-      address: "0x511172c326F7DE74Ec8b89DA1F539ad72E3a2463"
+      address: "0x7470f1dD6c78b6Fe614CdB5D320824A169EB420C"
       abi: CfManagerSoftcapVestingFactory
-      startBlock: 21668190
+      startBlock: 21866612
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
