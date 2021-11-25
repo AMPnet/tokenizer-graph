@@ -26,6 +26,28 @@ dataSources:
         - event: CfManagerSoftcapCreated(indexed address,address,address,uint256)
           handler: handleCfManagerSoftcapCreated
       file: ./src/cf-softcap-factory-mapping.ts
+  - kind: ethereum/contract
+    name: CfManagerSoftcapVestingFactory
+    network: mumbai
+    source:
+      address: "0x511172c326F7DE74Ec8b89DA1F539ad72E3a2463"
+      abi: CfManagerSoftcapVestingFactory
+      startBlock: 21668190
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - CfManagerSoftcapVestingCreated
+      abis:
+        - name: CfManagerSoftcapVestingFactory
+          file: ./abis/CfManagerSoftcapVestingFactory.json
+        - name: IAssetCommon
+          file: ./abis/IAssetCommon.json
+      eventHandlers:
+        - event: CfManagerSoftcapVestingCreated(indexed address,address,address,uint256)
+          handler: handleCfManagerSoftcapVestingCreated
+      file: ./src/cf-softcap-vesting-factory-mapping.ts
 templates:
   - kind: ethereum/contract
     name: CfManagerSoftcap
@@ -49,3 +71,25 @@ templates:
         - event: CancelInvestment(indexed address,address,uint256,uint256,uint256)
           handler: handleCancelInvestment
       file: ./src/cf-softcap-mapping.ts
+  - kind: ethereum/contract
+    name: CfManagerSoftcapVesting
+    network: mumbai
+    source:
+      abi: CfManagerSoftcapVesting
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - CfManagerSoftcapVesting
+      abis:
+        - name: CfManagerSoftcapVesting
+          file: ./abis/CfManagerSoftcapVesting.json
+      eventHandlers:
+        - event: Invest(indexed address,address,uint256,uint256,uint256)
+          handler: handleInvest
+        - event: Claim(indexed address,address,uint256,uint256)
+          handler: handleClaim
+        - event: CancelInvestment(indexed address,address,uint256,uint256,uint256)
+          handler: handleCancelInvestment
+      file: ./src/cf-softcap-vesting-mapping.ts
